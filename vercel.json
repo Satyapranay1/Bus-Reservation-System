@@ -1,7 +1,7 @@
 {
     "version": 2,
     "routes": [
-      { "src": "/(.*)", "dest": "/LANDPAGE.html" }
+      { "src": "/(.*)", "dest": "/login.php" }
     ]
   }
   
