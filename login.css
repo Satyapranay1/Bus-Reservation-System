@@ -1,0 +1,63 @@
+.main-login{
+    background-image: url("https://wallpapercave.com/wp/wp2939993.jpg");
+    height:100vh;
+    background-size: cover; 
+    padding:40px ; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}     
+h1{
+    text-align: center; 
+    color: rgb(171, 210, 30);
+}
+.form-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+form{
+    border-style: solid;
+    border-color:gold;
+    padding-top: 0px;
+    padding:10px;
+    text-align: center;
+    
+}
+.submit{
+    width:90px;
+    background-color: red; 
+    border:0px;
+    height:30px; 
+    color:white;
+    font-size:15px;
+    border-radius:5px; 
+    font-weight: bold; 
+} 
+label{
+    color: white;
+    font-weight: bold;
+}
+.forgot{
+    color:white;
+    font-size:15px;
+    margin-left:
+} 
+button{
+    width:90px;
+    background-color: rgb(225, 0, 255); 
+    border:0px;
+    height:30px; 
+    color:white;
+    font-size:15px;
+    border-radius:5px;
+    text-align: center;
+    margin-left: 10px;
+}  
+p{
+    text-align: center;
+}
+.butcon{
+    display: flex;
+}

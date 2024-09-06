@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Verify SMS Demo</title>
+  </head>
+
+  <body>
+    <form id="phone-form">
+      <h2>Enter your phone number with country code:</h2>
+      <input type="tel" id = "phone-number-input" placeholder="e.g. 15551235555"/>
+      <input id="phone-submit" type="submit"/>
+    </form>
+
+    <form id="verify-form">
+      <h2>Enter your verification code:</h2>
+      <input type="number" id="otp-input" placeholder="e.g. 123456"/>
+      <input id="verify-submit" type="submit"/>
+    </form>
+
+    <div id="response-text"></div>
+
+    <script>
+        const phoneForm = document.getElementById('phone-form');
+    const verifyForm = document.getElementById('verify-form');
+    const responseText = document.getElementById('response-text');
+    
+    let phoneNumber;
+    phoneForm.addEventListener('submit', async e => {
+  e.preventDefault();
+
+  phoneNumber = document.getElementById('phone-number-input').value;
+
+  const response = await fetch('/send-notification', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({phoneNumber : phoneNumber })
+  }).catch(e => console.log(e));
+
+  if (response.ok) {
+    phoneForm.style.display = 'none';
+    verifyForm.style.display = 'block';
+  }
+});
+verifyForm.addEventListener('submit', async e => {
+  e.preventDefault();
+
+  const otp = document.getElementById('otp-input').value;
+
+  const data = {
+    phoneNumber: phoneNumber, 
+    otp: otp
+  };
+
+  const response = await fetch('/verify-otp', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(data)
+  }).catch(e => console.log(e));
+
+  const check = await response.json();
+
+  const text = response.ok ? check.status : response.statusText;
+  responseText.innerHTML = text;
+
+  verifyForm.style.display = 'none';
+  responseText.style.display = 'block';  
+});
+
+exports.handler = function (context, event, callback) {
+  const client = context.getTwilioClient();
+
+  client.verify
+    .services(context.VERIFY_SERVICE_SID)
+    .verifications.create({ to: `+${event.phoneNumber}`, channel: "sms" })
+    .then((verification) => {
+      console.log(verification.status);
+      return callback(null);
+    })
+    .catch((e) => {
+      console.log(e);
+      return callback(e);
+    });
+};
+exports.handler = async function(context, event, callback) {
+  const client = context.getTwilioClient();
+
+  const check = await client.verify.services(context.VERIFY_SERVICE_SID)
+    .verificationChecks
+    .create({to: `+${event.phoneNumber}`, code: event.otp})
+    .catch(e => {
+      console.log(e)
+      return callback(e)
+    });
+  
+  const response = new Twilio.Response();
+  response.setStatusCode(200);
+  response.appendHeader('Content-Type', 'application/json');
+  response.setBody(check);
+
+  return callback(null, response);
+}
+      </script>
+  </body>
+
+  
+</html>

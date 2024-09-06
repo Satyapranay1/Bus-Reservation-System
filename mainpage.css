@@ -1,0 +1,32 @@
+
+  
+.name{
+    color:rgb(255, 0, 0); 
+    font-weight: bold; 
+    font-family: 'Times New Roman', Times, serif; 
+    font-size: 30px; 
+}
+ .profile{
+     width: 20%; 
+     height: 10%;
+  
+    position: fixed ; 
+    border-radius: 10px;
+    
+} 
+.navitem{
+    text-decoration: none; 
+    color:goldenrod;
+    font-weight: bold;   
+
+} 
+.navitem:hover{
+   font-size: 20px;
+    color:blueviolet; 
+    margin-bottom: 20px; 
+    text-align: center;
+} 
+img{
+    width:40%;
+}
+  

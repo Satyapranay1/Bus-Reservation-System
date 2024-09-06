@@ -1,0 +1,39 @@
+
+h1{
+    text-align: center;
+    color:wheat;
+}
+
+
+label{
+    color: white;
+    font-weight: bold;
+}
+.submit{
+    width:90px;
+    background-color: red; 
+    border:0px;
+    height:30px; 
+    color:white;
+    font-size:15px;
+    border-radius:5px;
+    font-weight: bold;
+} 
+.back{
+    width:90px;
+    background-color: rgb(0, 255, 110); 
+    border:0px;
+    height:30px; 
+    color:red; 
+    font-weight: bold;
+    font-size:15px;
+    border-radius:5px;
+}
+ a{
+    text-decoration: none;
+    color:red;
+ } 
+ span{
+    color: red;
+    font-weight: bold;
+ }

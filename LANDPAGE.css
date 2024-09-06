@@ -1,0 +1,119 @@
+.navbar-image {
+  width: 100px;
+  height: 60px; 
+} 
+.navbar-image:hover{
+    animation: move-horizontal 5s linear infinite;
+    white-space: nowrap;
+} 
+ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+ 
+}
+nav{
+    background-color: blueviolet; 
+    height: 80px;  
+    border-radius: 15px;
+    position: fixed;
+    width:98%;
+    margin-left: 4px;
+} 
+.navitem{
+   color:white; 
+   text-decoration: none; 
+   font-weight: bold;
+   font-size:18px;
+}  
+.logo{
+    background-color: #e73c8c; 
+    color:white;
+    font-weight: bold; 
+}
+.navitem:hover{
+    border-radius: 5px; 
+    border-color:  burlywood; 
+   color: gold; 
+   font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight:bold;
+} 
+.main-land{
+    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite; 
+    height:100%; 
+    display: flex;
+    flex-direction: column; 
+}
+
+@keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+.center-page{
+   text-align: center;  
+    margin-top: 180px;
+  }  
+  h1{
+    color: greenyellow;
+    font-size: 30px;
+    font-weight: bold; 
+  } 
+  span{  
+    font-family: sans-serif;
+  }
+ .bus1{
+    width: 400px;
+    height: 200px;
+    margin-bottom: 50px; 
+    white-space: nowrap;
+ }
+ .bus1:hover{
+    animation: move-horizontal 3s linear infinite;
+    white-space: nowrap;
+ }
+  @keyframes move-horizontal {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(100% + 100vw));
+    }
+  }
+ .login {
+    padding: 15px 30px;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: rgb(255, 0, 208);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out; 
+   
+  } 
+  .bg-change{
+    margin-top: 120px;
+    margin-left: 400px; 
+  }
+  .img{
+    width:50px; 
+    margin:30px; 
+  } 
+  .follow_us_main{
+    margin: 20px;
+    border-style: solid; 
+    border-color: gold; 
+    color: black;
+  }
